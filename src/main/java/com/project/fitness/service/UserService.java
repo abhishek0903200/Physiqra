@@ -7,7 +7,6 @@ import com.project.fitness.model.User;
 import com.project.fitness.model.UserRole;
 import com.project.fitness.repositiory.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
