@@ -21,27 +21,12 @@ public class UserService{
     public UserResponse register(RegisterRequest request) {
         UserRole role = request.getRole() != null ? request.getRole():UserRole.USER;
         User user = User.builder()
-                .email(request.getEmail())
+                .email( request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(role)
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .build();
-//        User user = new User(
-//                null,
-//                request.getEmail(),
-//                request.getPassword(),
-//                request.getFirstName(),
-//                request.getLastName(),
-//                Instant.parse("2026-04-04T09:03:47.656Z")
-//                        .atZone(ZoneOffset.UTC)
-//                        .toLocalDateTime(),
-//                Instant.parse("2026-04-04T09:03:47.656Z")
-//                        .atZone(ZoneOffset.UTC)
-//                        .toLocalDateTime(),
-//                List.of(),
-//                List.of()
-//        );
 
         User savedUser = userRepository.save(user);
         return mapToResponse(savedUser);
